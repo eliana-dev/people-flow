@@ -17,3 +17,4 @@ class EmpleadoUpdate(BaseModel): # modelo usado para actualizar, si no se pasa l
     email: str = None
     puesto: str = None
     salario: float = None
+    fecha_ingreso: datetime = None
