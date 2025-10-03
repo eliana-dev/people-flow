@@ -1,4 +1,4 @@
-# PeopleFlow 📊
+# PeopleFlow ▶
 
 Una API REST para gestión de empleados desarrollada con Flask y MongoDB. Permite realizar operaciones CRUD completas sobre registros de empleados, incluyendo consultas especializadas como el promedio salarial.
 
