@@ -1,6 +1,8 @@
 from flask import Flask
 from flasgger import Swagger
 from blueprints import empleados
+from logger import logger
+
 
 app = Flask(__name__)
 
@@ -30,6 +32,7 @@ def alive_msg():
                 type: string
                 example: "PeopleFlow▶ API is Alive!"
     """
+    logger.info("Llamado a /alive")
     return "PeopleFlow▶ API is Alive!"
 
 
