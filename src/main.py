@@ -7,7 +7,7 @@ app.register_blueprint(blueprint=empleados.bp)
 
 @app.route("/alive")
 def alive_msg():
-    return "People Flow API is Alive!"
+    return "PeopleFlow▶ API is Alive!"
 
 
 if __name__ == "__main__":
