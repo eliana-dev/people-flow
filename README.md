@@ -18,14 +18,18 @@ Una API REST para gestión de empleados desarrollada con Flask y MongoDB. Permit
 - **PyMongo** - Driver de MongoDB
 - **Pydantic** - Validación de datos
 - **python-dotenv** - Gestión de variables de entorno
-
+- **Flasgger** - Documentación de API con Swagger
+- **colorlog** – Logs coloreados y más legibles
+  
 ## Requisitos previos
 
 ### Opción 1: Usando uv (Recomendado)
+
 - [uv](https://docs.astral.sh/uv/) - Gestor de paquetes rápido de Python
 - MongoDB instalado y ejecutándose
 
 ### Opción 2: Usando Python tradicional
+
 - Python 3.9 o superior
 - pip (incluido con Python)
 - MongoDB instalado y ejecutándose
@@ -35,11 +39,13 @@ Una API REST para gestión de empleados desarrollada con Flask y MongoDB. Permit
 ### 🔧 Configuración de variables de entorno
 
 1. **Copia el archivo de ejemplo de configuración:**
+
    ```bash
    cp .env.example .env
    ```
 
 2. **Edita el archivo `.env`** con tus datos de MongoDB:
+
    ```env
    MONGO_HOST=localhost
    MONGO_PORT=27017
@@ -94,9 +100,11 @@ La API estará disponible en `http://localhost:5000`
 ### Endpoints disponibles
 
 #### 🔍 Estado de la API
+
 ```http
 GET /alive
 ```
+
 Respuesta: `"PeopleFlow▶ API is Alive!"`
 
 #### 👥 Gestión de empleados
@@ -158,4 +166,3 @@ people-flow/
 | `MONGO_USER` | Usuario de MongoDB | `admin` |
 | `MONGO_PASS` | Contraseña de MongoDB | `password123` |
 | `MONGO_AUTH_MECHANISM` | Mecanismo de autenticación | `SCRAM-SHA-256` |
-
