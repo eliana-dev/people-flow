@@ -15,8 +15,10 @@ def get_by_puesto(puesto_buscar: str):  ##filtra por puesto
     return [document_to_json(empleado) for empleado in empleados]
 
 
-def get_by_id(id_empleado: str):
+def get_by_id(id_empleado: str): ## si no hay un empleado con ese id rompe
     empleado = col.find_one({"_id": ObjectId(id_empleado)})
+    if empleado is None:
+        return {"error": "Empleado no encontrado."}, 404
     return document_to_json(empleado)
 
 
@@ -52,7 +54,9 @@ def get_promedio_salarios():
     pipeline = [{"$group": {"_id": None, "promedio_salario": {"$avg": "$salario"}}}]
     result = list(col.aggregate(pipeline))
     if result:
-        return jsonify({"promedio_salario": result[0]["promedio_salario"]})
+        return jsonify({
+            "promedio_salario": result[0]["promedio_salario"]
+            })
     return jsonify({"promedio_salario": None})
 
 
@@ -60,6 +64,5 @@ def get_promedio_salarios():
 
 def document_to_json(document):
     document["_id"] = str(document["_id"])
-    print(type(document["fecha_ingreso"]))
     document["fecha_ingreso"] = datetime.strftime(document["fecha_ingreso"], "%Y-%m-%d")
     return document
